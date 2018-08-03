@@ -4,7 +4,8 @@ import random
 class Deck:
 	deck_of_cards = []
 
-	def __init__(self):
+	def __init__(self, id):
+		self.id = id
 		cards_in_deck = 52
 		deck_of_cards = []
 		index = 0
@@ -19,7 +20,12 @@ class Deck:
 		random.shuffle(self.deck_of_cards)
 
 	def deal(self):
-		return Card
+		card = self.deck_of_cards[0]
+		self.deck_of_cards.pop(0)
+		return card
+
+	def burn_card(self):
+		self.deck_of_cards.pop(0)
 
 	def get_cards(self):
 		return self.deck_of_cards

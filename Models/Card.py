@@ -1,6 +1,6 @@
-class Card:
-
+class Card:	
 	def __init__(self, number, suit, image):
+		self.id = id
 		self.number = number
 		self.suit = suit
 		self.image = image
@@ -8,16 +8,16 @@ class Card:
 		self.set_name()
 
 	def set_name(self):
-		if(self.number == 10):
+		if(self.number == 0):
+			self.name = "Ace of "
+		elif(self.number == 10):
 			self.name = "Jack of "
 		elif(self.number == 11):
 			self.name = "Queen of "
 		elif(self.number == 12):
 			self.name = "King of "
-		elif(self.number == 0):
-			self.name = "Ace of "
 		else:
-			self.name = str(self.number) +" of "
+			self.name = str(self.number + 1) +" of "
 
 		if(self.suit == 0):
 			self.name += "Clubs"
