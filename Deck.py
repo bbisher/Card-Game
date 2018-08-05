@@ -2,9 +2,9 @@ from Card import Card
 import random
 
 class Deck(object):
-	deck_of_cards = []
 	def __init__(self):
 		cards_in_deck = 52
+		self.deck_of_cards = []
 		index = 0
 		while index < cards_in_deck:
 			card_number = index % 13
