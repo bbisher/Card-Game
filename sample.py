@@ -4,38 +4,34 @@ from Player import Player
 
 table = Table()
 deck = Deck()
-player1 = Player()
-player1.name = "Jon"
-player1.money = 100
-player2 = Player()
-player2.name = "Beth"
-player2.money = 100
+players = []
+
+player = Player()
+player.name = "Jon"
+player.money = 100
+players.append(player)
+
+player = Player()
+player.name = "Beth"
+player.money = 100
+players.append(player)
 
 deck.shuffle()
 
 deck.burnCard()
-card = deck.deal()
-player1.addCard(card)
-card = deck.deal()
-player2.addCard(card)
+for player in players:
+    card = deck.deal()
+    player.addCard(card)
 
-card = deck.deal()
-player1.addCard(card)
-card = deck.deal()
-player2.addCard(card)
+for player in players:
+    card = deck.deal()
+    player.addCard(card)
 
 print("")
-print("Player 1 Cards:")
-player1.checkCards()
-table.add_to_pot(player1.bet(10))
-print("")
-
-print("Pot: ", table.get_pot())
-
-print("")
-print("Player 2 Cards:")
-player2.checkCards()
-print("")
+for player in players:
+    print(player.name + "'s Cards:")
+    player.checkCards()
+    print("")
 
 #flop
 deck.burnCard()
