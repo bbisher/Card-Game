@@ -24,7 +24,6 @@ class Player(object):
 	def addCard(self, card):
 		return self.cards.append(card)
 
-
 	def removeCard(self, card):
 		return self.cards.remove(card)
 
@@ -34,6 +33,12 @@ class Player(object):
 
 	def clearCards(self):
 		cards = []
+
+	def check(self):
+		pass
+
+	def fold(self):
+		clearCards()
 
 	def bet(self, amount):
 		if(self.isBetValid(amount)):
