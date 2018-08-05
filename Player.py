@@ -1,25 +1,48 @@
 class Player(object):
-	cards = []
-	def __init__(self, name, money, image):
-		self.name = name
-		self.money = money
-		self.image = image
+	def _setName(self, name=None):
+		self._name = name
+	def _getName(self):
+		return self._name
 
-	def give_card(self, card):
-		self.cards.append(card)
+	def _setMoney(self, money=0):
+		self._money = money
+	def _getMoney(self):
+		return self._money
 
-	def check_cards(self):
-		for card in cards:
-			print(self.cards.name)
+	def _setImage(self, image=""):
+		self._image = image
+	def _getImage(self):
+		return self._image
+
+	name = property(_getName, _setName)
+	money = property(_getMoney, _setMoney)
+	image = property(_getImage, _setImage)
+
+	def __init__(self):
+		self.cards = []
+
+	def addCard(self, card):
+		return self.cards.append(card)
+
+
+	def removeCard(self, card):
+		return self.cards.remove(card)
+
+	def checkCards(self):
+		for card in self.cards:
+			print(card.name)
+
+	def clearCards(self):
+		cards = []
 
 	def bet(self, amount):
-		if(self.is_bet_valid(amount)):
+		if(self.isBetValid(amount)):
 			self.money -= amount
 			return amount
 		else:
 			return 0
 
-	def is_bet_valid(self, bet):
+	def isBetValid(self, bet):
 		if(bet > self.money):
 			return False
 		return True

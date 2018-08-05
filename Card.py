@@ -1,29 +1,25 @@
 class Card(object):
+	def _setNumber(self, number=None):
+		self._number = number
+	def _getNumber(self):
+		return self._number
 
-	def __init__(self, number, suit, image):
-		self.number = number
-		self.suit = suit
-		self.image = image
-		self.name = ""
-		self.set_name()
+	def _setSuit(self, suit=None):
+		self._suit = suit
+	def _getSuit(self):
+		return self._suit
 
-	def set_name(self):
-		if(self.number == 0):
-			self.name = "Ace of "
-		elif(self.number == 10):
-			self.name = "Jack of "
-		elif(self.number == 11):
-			self.name = "Queen of "
-		elif(self.number == 12):
-			self.name = "King of "
-		else:
-			self.name = str(self.number + 1) +" of "
+	def _setImage(self, image=None):
+		self._image = image
+	def _getImage(self):
+		return self._image
 
-		if(self.suit == 0):
-			self.name += "Clubs"
-		elif(self.suit == 1):
-			self.name += "Diamonds"
-		elif(self.suit == 2):
-			self.name += "Hearts"
-		elif(self.suit == 3):
-			self.name += "Spades"
+	def _setName(self, name=None):
+		self._name = name
+	def _getName(self):
+		return self._name
+
+	number = property(_getNumber, _setNumber)
+	suit = property(_getSuit, _setSuit)
+	image = property(_getImage, _setImage)
+	name = property(_getName, _setName)
