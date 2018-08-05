@@ -1,25 +1,28 @@
 class Table(object):
-    cards_on_table = []
-    def __init__(self, pot=0, cards_on_table=[]):
-        self.pot = pot
-        self.cards_on_table = cards_on_table
+    def _setPot(self, pot=None):
+        self._pot = pot
 
-    def get_pot(self):
-        return self.pot
+    def _getPot(self):
+        return self._pot
 
-    def add_to_pot(self, amount):
+    pot = property(_getPot, _setPot)
+
+    def __init__(self):
+        self.cards_on_table = []
+
+    def addToPot(self, amount):
         self.pot += amount
         return self.pot
 
-    def remove_from_pot(self, amount):
+    def removeFromPot(self, amount):
         self.pot -= amount
         return self.pot
 
-    def get_cards(self):
+    def getCards(self):
         return self.cards_on_table
 
-    def add_card(self, card):
+    def addCard(self, card):
         return self.cards_on_table.append(card)
 
-    def clear_cards(self):
+    def clearCards(self):
         self.cards_on_table = []
